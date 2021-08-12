@@ -1,10 +1,11 @@
-<h1>😎 rxback 😎 </h1><br>
+<h1>😎 xBackend 😎 </h1><br>
 
-rxback will scan virustotal,dnsdumpster,c99subdomain and match MX,DNS,HOST results to find backend ip
+xBackend will scan virustotal,dnsdumpster,c99subdomain and match MX,DNS,HOST results to find backend ip
 * shodan matcher
 * Dnsdumpster scanner
 * virustotal scanner
 * redu scanner
 * Cloudflare range matcher
+* xBackend is an official fork out of https://github.com/psauxx/rxback
 
-![image](https://user-images.githubusercontent.com/68131578/127844050-39f0a36f-84ce-4064-baa9-d50210752454.png)
+![image](https://prnt.sc/1ndtuh4)
