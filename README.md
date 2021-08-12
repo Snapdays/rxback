@@ -8,4 +8,4 @@ xBackend will scan virustotal,dnsdumpster,c99subdomain and match MX,DNS,HOST res
 * Cloudflare range matcher
 * xBackend is an official fork out of https://github.com/psauxx/rxback
 
-![image](https://prnt.sc/1ndtuh4)
+![image](![xbackend](https://user-images.githubusercontent.com/80839783/129192117-961b830e-9471-4448-9437-6607784753bb.png))
