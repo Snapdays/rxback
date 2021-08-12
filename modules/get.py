@@ -1,3 +1,4 @@
+from ctypes import wstring_at
 import requests, socket, subprocess, shodan
 from urllib.parse import urlparse
 from shodan import Shodan
@@ -174,15 +175,15 @@ def total(url):
                 for title in soup.find_all('title'):
                     oo = title.get_text()
                 if len(oo) == 0:
-                    print(f"    {gray}► {white} Found " + domain, f"IP {blue}" + lol, f"{white} Date: {yellow}" + io + f" {white}HeaderTitle: {gray}empty")
+                    print(f"    {gray}► {green} Found {white}" + domain, f"IP {yellow}" + lol, f"{white} Date: {yellow}" + io + f" {white}HeaderTitle: {gray}empty")
                 else:
-                    print(f"    {gray}► {white} Found " + domain, f"IP {blue}" + lol, f"{white} Date: {yellow}" + io + f" {white}HeaderTitle: {yellow}{oo}")
+                    print(f"    {gray}► {green} Found {white}" + domain, f"IP {yellow}" + lol, f"{white} Date: {yellow}" + io + f" {white}HeaderTitle: {yellow}{oo}")
         except:
-            print(f"    {gray}► {white} Found " + domain, f"IP {blue}" + lol,
+            print(f"    {gray}► {green} Found {white}" + domain, f"IP {yellow}" + lol,
                   f"{white} Date: {yellow}" + io + f" {white}HeaderTitle: {gray}empty")
             if "172." in lol or "8." in lol or "103." in lol or "104." in lol or "23." in lol or "173." in lol:
 
-                print(f"    {gray}► {white} Found " + domain, f"IP {blue}" + lol,
+                print(f"    {gray}► {green} Found {white}" + domain, f"IP {yellow}" + lol,
                       f"{white} Date: {yellow}" + io + f" {white}HeaderTitle: {gray}empty (CloudFlare)")
 
 
@@ -229,11 +230,11 @@ def dnsdumpster(target):
                 lol = entry['ip']
 
                 if "172." in lol or "103." in lol or "104." in lol or "23." in lol or "173." in lol:
-                    print(f"    {gray}► {white}HOST: {white}{entry['domain']}{white} {gray}{entry['ip']} (CloudFlare)")
+                    print(f"    {gray}► {red}HOST: {white}{entry['domain']}{white} {gray}{entry['ip']} (CloudFlare)")
                 else:
-                    print(f"    {gray}► {white}HOST: {white}{entry['domain']}{white} {blue}{entry['ip']}")
+                    print(f"    {gray}► {red}HOST: {white}{entry['domain']}{white} {yellow}{entry['ip']}")
     else:
-        print(f"    {gray}► {white}no host records found or they don't match {yellow}cloudflare or ddos-guard")
+        print(f"    {gray}► {red}no host records found or they don't match {yellow}cloudflare or ddos-guard")
 
     if res['dns_records']['dns']:
         for entry in res['dns_records']['dns']:
@@ -241,11 +242,11 @@ def dnsdumpster(target):
             if "cloudflare" not in provider or "ddos-guard" not in provider:
                 lol = entry['ip']
                 if "172." in lol or "103." in lol or "104." in lol or "23." in lol or "173." in lol:
-                    print(f"    {gray}► {white}Found DNS: {entry['domain']} {gray}{entry['ip']} (CloudFlare)")
+                    print(f"    {gray}► {green}Found DNS: {white}{entry['domain']} {gray}{entry['ip']} (CloudFlare)")
                 else:
-                    print(f"    {gray}► {white}Found DNS: {entry['domain']} {blue}{entry['ip']}")
+                    print(f"    {gray}► {green}Found DNS: {white}{entry['domain']} {yellow}{entry['ip']}")
     else:
-        print(f"    {gray}► {white}no dns records found or they don't match {yellow}cloudflare or ddos-guard")
+        print(f"    {gray}► {red}no dns records found or they don't match {yellow}cloudflare or ddos-guard")
 
     if res['dns_records']['mx']:
         for entry in res['dns_records']['mx']:
@@ -253,9 +254,9 @@ def dnsdumpster(target):
             if "cloudflare" not in provider or "ddos-guard" not in provider:
                 lol = entry['ip']
                 if "172." in lol or "103." in lol or "104." in lol or "23." in lol or "173." in lol:
-                    print(f"    {gray}► {white}Found MX: {entry['domain']} {gray}{entry['ip']} (CloudFlare)")
+                    print(f"    {gray}► {green}Found MX: {white}{entry['domain']} {gray}{entry['ip']} (CloudFlare)")
                 else:
-                    print(f"    {gray}► {white}Found MX: {entry['domain']} {blue}{entry['ip']}")
+                    print(f"    {gray}► {green}Found MX: {white}{entry['domain']} {yellow}{entry['ip']}")
 
     else:
-        print(f"    {gray}► {white}no mx records found or they don't match {yellow}cloudflare or ddos-guard")
+        print(f"    {gray}► {red}no mx records found or they don't match {yellow}cloudflare or ddos-guard")
